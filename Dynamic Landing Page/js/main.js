@@ -41,15 +41,15 @@ function setBgGreet() {
   if (hour < 12) {
     // Morning
     document.body.style.backgroundImage = "url('https://i.ibb.co/7vDLJFb/morning.jpg')";
-    greeting.textContent = 'Good Morning, ';
+    greeting.textContent = 'Доброе утро, ';
   } else if (hour < 18) {
     // Afternoon
     document.body.style.backgroundImage = "url('https://i.ibb.co/3mThcXc/afternoon.jpg')";
-    greeting.textContent = 'Good Afternoon, ';
+    greeting.textContent = 'Добрый день, ';
   } else {
     // Evening
     document.body.style.backgroundImage = "url('https://i.ibb.co/924T2Wv/night.jpg')";
-    greeting.textContent = 'Good Evening, ';
+    greeting.textContent = 'Добрый вечер, ';
     document.body.style.color = 'white';
   }
 }
@@ -57,7 +57,7 @@ function setBgGreet() {
 // Get Name
 function getName() {
   if (localStorage.getItem('name') === null) {
-    name.textContent = '[Enter Name]';
+    name.textContent = '[Напиши своё имя]';
   } else {
     name.textContent = localStorage.getItem('name');
   }
@@ -79,7 +79,7 @@ function setName(e) {
 // Get Focus
 function getFocus() {
   if (localStorage.getItem('focus') === null) {
-    focus.textContent = '[Enter Focus]';
+    focus.textContent = '[Напиши о мыслях]';
   } else {
     focus.textContent = localStorage.getItem('focus');
   }
