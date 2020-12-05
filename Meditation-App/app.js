@@ -10,6 +10,7 @@ const timeDisplay = document.querySelector(".time-display");
 const outlineLength = outline.getTotalLength();
 //Duration
 const timeSelect = document.querySelectorAll(".time-select button");
+
 let fakeDuration = 600;
 
 outline.style.strokeDashoffset = outlineLength;
@@ -17,6 +18,8 @@ outline.style.strokeDasharray = outlineLength;
 timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
   fakeDuration % 60
 )}`;
+
+//Pick different sound
 
 sounds.forEach(sound => {
   sound.addEventListener("click", function() {
@@ -26,6 +29,7 @@ sounds.forEach(sound => {
   });
 });
 
+// play sound
 play.addEventListener("click", function() {
   checkPlaying(song);
 });
@@ -43,6 +47,8 @@ const restartSong = song =>{
 
 }
 
+// Select sound
+
 timeSelect.forEach(option => {
   option.addEventListener("click", function() {
     fakeDuration = this.getAttribute("data-time");
@@ -51,6 +57,8 @@ timeSelect.forEach(option => {
     )}`;
   });
 });
+
+// stop and play the sounds
 
 const checkPlaying = song => {
   if (song.paused) {
@@ -64,12 +72,16 @@ const checkPlaying = song => {
   }
 };
 
+// animated the circle
+
 song.ontimeupdate = function() {
   let currentTime = song.currentTime;
   let elapsed = fakeDuration - currentTime;
   let seconds = Math.floor(elapsed % 60);
   let minutes = Math.floor(elapsed / 60);
+  
   timeDisplay.textContent = `${minutes}:${seconds}`;
+  
   let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
   outline.style.strokeDashoffset = progress;
 
