@@ -40,15 +40,15 @@ function setBgGreet() {
 
   if (hour < 12) {
     // Morning
-    document.body.style.backgroundImage = "url('/Dynamic Landing Page/img/Morning.jpg')";
+    document.body.style.backgroundImage = "url('/img/Morning.jpg')";
     greeting.textContent = 'Доброе утро, ';
   } else if (hour < 18) {
     // Afternoon
-    document.body.style.backgroundImage = "url('/Dynamic Landing Page/img/Afternoon.jpg')";
+    document.body.style.backgroundImage = "url('/img/Afternoon.jpg')";
     greeting.textContent = 'Добрый день, ';
   } else {
     // Evening
-    document.body.style.backgroundImage = "url('/Dynamic Landing Page/img/Evening.jpg')";
+    document.body.style.backgroundImage = "url('/img/Evening.jpg')";
     greeting.textContent = 'Добрый вечер, ';
     document.body.style.color = 'white';
   }
