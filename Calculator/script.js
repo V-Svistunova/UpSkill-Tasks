@@ -1,4 +1,4 @@
-    numbers = document.querySelectorAll(".number"),
+let numbers = document.querySelectorAll(".number"),
     operations = document.querySelectorAll(".operator"),
     clearBtns = document.querySelectorAll(".clear-btn"),
     decimalBtn = document.getElementById("decimal"),
@@ -34,7 +34,7 @@ for(let i = 0; i < clearBtns.length; i++) {
 decimalBtn.addEventListener("click", decimal);
 
 result.addEventListener("click", function(e){
-    console.log("Клик по result")
+    console.log("click in result")
 });
 
     function numberPress(number) {
