@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body class="body">    
+    <div class="container">      
+      <div class="controls">
+        <h3 class="name">фотофильтры:</h3>
+        <label for="sizing" class="text">размер</label>
+        <input
+          name="sizing"
+          type="range"
+          min="500"
+          max="800"
+          value="500"
+          data-sizing="px"
+        />
+        <label for="blur" class="text">размытие</label>
+        <input
+          name="blur"
+          type="range"
+          min="0"
+          max="10"
+          value="0"
+          data-sizing="px"
+        />
+        <label for="color" class="text">фон</label>
+        <input 
+        class="background"
+        name="base" 
+        type="color" 
+        value="#a37a08" 
+        />
+        <label for="invers" class="text">инверсия</label>
+        <input
+          name="invers"
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+          data-sizing="%"
+        />
+        <label for="sepia" class="text">сепия</label>
+        <input
+          name="sepia"
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+          data-sizing="%"
+        />
+        <label for="nas" class="text">контраст</label>
+        <input
+          name="nas"
+          type="range"
+          min="0"
+          max="100"
+          value="100"
+          data-sizing="%"
+        />
+      </div>
+      <img src="/img/Cats.jpg" alt="img" />
+    </div>
+    
+    <script src="/js/main.js"></script>
+  </body>
+</html>

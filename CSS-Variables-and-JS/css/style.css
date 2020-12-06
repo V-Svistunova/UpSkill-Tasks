@@ -1,0 +1,53 @@
+:root {
+  --base: #a37a08;
+  --sizing: 500px;
+  --blur: 0px;
+  --invers: 0%;
+  --sepia: 0%;
+  --nas: 100%;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--base);
+  font-size: 40px;
+  padding: 30px;
+}
+
+.name {  
+  grid-column: span 2;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;  
+}
+
+.controls {  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  text-transform: capitalize;  
+}
+
+input {
+  width: 120px;  
+}
+
+.text {  
+  margin: auto;  
+}
+
+.background {
+  height: 100%;
+}
+
+img {
+  height: var(--sizing);
+  width: var(--sizing + 100px);
+  filter: blur(var(--blur)) invert(var(--invers)) sepia(var(--sepia)) contrast(var(--nas));
+  opacity: 0.9;
+}
