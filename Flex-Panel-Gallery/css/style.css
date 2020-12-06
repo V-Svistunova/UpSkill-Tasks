@@ -24,7 +24,7 @@ body {
     color: white;
     text-align: center;
     align-items: center;
-    
+
     /* Safari transitionend event.propertyName === flex */
     /* Chrome + FF transitionend event.propertyName === flex-grow */
     transition:
