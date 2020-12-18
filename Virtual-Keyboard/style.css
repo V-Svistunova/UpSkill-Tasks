@@ -1,0 +1,84 @@
+h1{
+    text-align: center;
+    color:#20005c;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.text {
+    width: 100%;
+    height: 20vh;
+    font-size: 24px;
+}
+.keyboard {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    background: #013342;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: bottom 0.4s;
+}
+
+.keyboard-hidden {
+    bottom: -100%;
+}
+
+.keyboard_keys {
+    text-align: center;
+}
+
+.keyboard_key {
+    height: 50px;
+    width: 8%;
+    max-width: 70px;
+    margin: 3px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.7rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+.keyboard_key:active {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.keyboard_key-wide {
+    width: 12%;
+    max-width: 90px;
+}
+
+.keyboard_key-extra {
+    width: 36%;
+    max-width: 500px;
+}
+
+.keyboard_key-activatable::after {
+    content: '';
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+
+.keyboard_key-active::after {
+    background: #0051ff;
+}
+
+.keyboard_key-dark {
+    background: rgba(27, 27, 27, 0.6);
+}
+
