@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Raindrops</title>
+</head>
+<body class="body"> 
+  <div class="games_area">
+
+    <!-- Left section -->
+    <div class="game_window">      
+      <canvas 
+      id="canvas" 
+      class="canvas" 
+      width="1400" 
+      height="1000">
+      </canvas>
+    </div>
+
+    <!-- Right section -->
+    <div class="game_pad">
+      <div class="score">
+        <img src="/img/star.png" alt="star" class="star">
+        <h1 class="score_text">score:</h1>
+        <div class="score_display">
+          <input 
+          disabled 
+          width="100"
+          type="text" 
+          id="score" 
+          value="0" 
+          name="" 
+          placeholder="0" 
+          class="score_display_input"> 
+        </div>        
+      </div> 
+      <div class="control_panel">
+        <button type="button" class="btn_control_panel btn_hover_blue play">play</button>
+        <button type="button" class="btn_control_panel btn_hover_red stop">stop</button>
+        <button type="button" class="btn_control_panel btn_hover_orange haw_play">haw play?</button>
+      </div>     
+      <div class="container">
+        <div class="calc">
+          <div class="calc_display">
+              <input 
+              disabled 
+              type="text" 
+              id="display" 
+              value="0" 
+              name="" 
+              placeholder="000000000000000000" 
+              class="calc_display_input">
+          </div>
+            <div class="calc_grid">    
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">7</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">8</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">9</button>
+              </div>  
+              <div class="button_grid long_grid_1">
+                <button type="button" class="clear_btn btn btn_hover_red" id="clear"><h1>clear</h1></button>
+              </div>             
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">4</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">5</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">6</button>
+              </div>              
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">1</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">2</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">3</button>
+              </div>
+              <div class="button_grid long_grid_1">
+                <button type="button" class="operator btn btn_enter btn_hover_blue" id="result"> <h1>enter</h1> </button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn">0</button>
+              </div>
+              <div class="button_grid long_grid_2">
+                <button type="button" class="btn_delete btn btn_hover_orange" id="delete">delete</button>
+              </div>               
+           </div>
+        </div>
+     </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+
+</html>
