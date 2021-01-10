@@ -6,17 +6,41 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>Raindrops</title>
 </head>
-<body class="body"> 
+<body class="body">
+  
+  <div class="overlay overlay-end opacity-null display-none">
+    <div class="message message_end">
+      <h2>You have a new level </h2>
+      <button class="confirm">Play again!</button>
+    </div>
+  </div>
+
   <div class="games_area">
 
     <!-- Left section -->
-    <div class="game_window">      
-      <canvas 
-      id="canvas" 
-      class="canvas" 
-      width="1400" 
-      height="1000">
-      </canvas>
+    <div class="game_window"> 
+      <div class="game_container">
+        <div class="game_container_fild"></div>
+        <div class="wave">
+          <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 
+                58-18 88-18s
+                58 18 88 18 
+                58-18 88-18 
+                58 18 88 18
+                v44h-352z" />
+            </defs>
+            <g class="parallax">
+              <use xlink:href="#gentle-wave" x="60" y="0" fill="#407594" />
+              <use xlink:href="#gentle-wave" x="60" y="3" fill="#5ba1c9" />
+              <use xlink:href="#gentle-wave" x="60" y="6" fill="#3c6983" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      
     </div>
 
     <!-- Right section -->
@@ -35,11 +59,11 @@
           placeholder="0" 
           class="score_display_input"> 
         </div>        
-      </div> 
+      </div>    
       <div class="control_panel">
         <button type="button" class="btn_control_panel btn_hover_blue play">play</button>
-        <button type="button" class="btn_control_panel btn_hover_red stop">stop</button>
-        <button type="button" class="btn_control_panel btn_hover_orange haw_play">haw play?</button>
+        <button type="button" class="btn_control_panel btn_hover_red end">end</button>
+        <button type="button" class="btn_control_panel btn_hover_orange haw_play">haw to play?</button>
       </div>     
       <div class="container">
         <div class="calc">
@@ -52,7 +76,7 @@
               name="" 
               placeholder="000000000000000000" 
               class="calc_display_input">
-          </div>
+          </div>            
             <div class="calc_grid">    
               <div class="button_grid">
                 <button type="button" class="number btn_hover_green btn">7</button>

@@ -383,32 +383,198 @@ html {
 .body {
   font-family: "Aclonica", sans-serif;
   font-style: normal;
-  font-size: 30px;
-  overflow:  hidden;
+  font-size: 30px;  
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+  opacity: 1;
+  transition: all 0.6s;
+}
+
+.display-none {
+  display: none;
+}
+
+.opacity-null {
+  opacity: 0;
+}
+
+.message {
+  max-width: 300px;
+  text-align: center;
+  background: #3d77b9;
+  border: 3px solid #5c4da19f;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 1.6rem;
+  line-height: 3rem;
+}
+
+.message-end h2 {
+  font-weight: initial;
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.confirm {
+  display: block;
+  width: 50%;
+  margin: auto;
+  border: 3px solid #347e3e;
+  background: #e7f1d3;
+  font: 2rem bold;
+  cursor: pointer;
+}
+
+.drop {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+  top: -110px;
+  background-color: rgb(0, 183, 255);
+  border-radius: 50%;
+  transition-timing-function: ease-in;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.drop__container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 7px;
+  top: 10px;
+  text-align: center;
+}
+.drop__span {
+  display: block;
+  margin-left: 3px;
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 3.5rem;
+}
+.drop__span_big {
+  height: 100%;
+  float: left;
+  font-size: 6rem;
+  text-shadow: 2px 2px 3px white, -2px -2px 3px white, -2px 2px 3px white, 2px -2px 3px white;
+}
+.drop::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: 5px;
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 110px solid rgb(0, 183, 255);
 }
 
 .games_area {
-  width: 100%;
-  height: auto;
   display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
-.game_window {
-  width: 65%;
-  background-color: rgb(0, 255, 106);
-}
-
-.canvas {
+.game_window {  
+  background: rgb(0, 255, 106) url(/img/dog.jpg);  
   width: 100%;
+  height: 100%;
+  display: flex;  
+}
+
+.game_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;  
+}
+
+.game_container_fild {
+  width: 100%;
+  height: 100%;
+}
+
+.wave {
+  position: relative;
+  height: 5%;
+  background-color: #3c6983;
+  transition: 1s;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -5s;
+  opacity: 0.9;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -5s;
+  animation-duration: 15s;
+  opacity: 0.9;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -9s;
+  animation-duration: 8s;
+}
+
+.parallax > use {
+  animation: move-forever 20s linear infinite;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+.editorial {
+  top: -60px;
+  position: absolute;
   display: block;
-  border: 1px solid;
-  margin: 0 auto;
-  overflow:  hidden;
+  width: 100%;
+  min-width: 290px;
+  height: 60px;
+  max-height: 100vh;
+  margin: 0;
+}
+
+path[Attributes Style] {
+  d: path("M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z");
+}
+
+:not(svg) {
+  transform-origin: 0px 0px;
+}
+
+svg:not(:root) {
+  overflow: hidden;
 }
 
 .game_pad {
   width: 35%;
   background-color: rgb(87, 175, 60);
+  z-index: 2;
 }
 
 .score {
@@ -441,7 +607,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 .btn_control_panel {
@@ -459,16 +625,14 @@ html {
   width: 500px;
   height: auto;
   margin: 0 auto;
-  padding: 30px 0  ;
-  
+  padding: 15px 0  ;  
 }
 
 .calc {
   margin: 0 auto;    
   background-color:rgb(60, 175, 150);    
   width: 400px;
-  height: 500px;
-  padding: 15px 0;
+  height: 450px;  
   border-radius: 30px;
 }
 
@@ -488,7 +652,7 @@ html {
 
 .calc_display_input {
   width: 360px;
-  height: 150px;
+  height: 120px;
   border-radius: 30px;
   background-color: #f8f8f6;
   color: rgb(0, 0, 0);
@@ -566,7 +730,7 @@ button {
   padding: 7px 12px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
 
   .star {
     width: 30px;
@@ -587,10 +751,12 @@ button {
 
   .calc_display_input {
     width: 260px;
+    height: 100px;
   }
 
   .calc {
     width: 300px;
+    height: 410px;
   }
 
   .calc_grid {         
@@ -599,8 +765,8 @@ button {
   }
 
   .btn {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     background-color: #fcde9d;
     font-size: 30px;
   }
@@ -608,17 +774,17 @@ button {
   .btn_enter,
   .clear_btn {
     font-size: 15px;
-    height: 120px;
+    height: 110px;
   }
 
   .btn_delete {
     font-size: 15px;
-    width: 120px;
+    width: 110px;
   }
     
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
 
   .star {
     width: 30px;
@@ -644,10 +810,12 @@ button {
 
   .calc {
     width: 230px;
+    height: 340px;
   }
 
   .calc_display_input {
     width: 190px;
+    height: 90px;
   }
 
   .calc_grid {         
@@ -657,105 +825,104 @@ button {
 
   .btn {
     width: 40px;
+    height: 40px;
   }
 
   .btn_enter,
   .clear_btn {
     font-size: 14px;
     width: 50px;
-    height: 130px;
+    height: 80px;
   }
 
   .btn_delete {
     font-size: 15px;
-    width: 90px;
+    width: 80px;
   }
 }
 
-@media screen and (max-width: 650px) {
+
+@media screen and (max-width: 700px) {
+
+  .games_area {    
+   flex-direction: column;
+  }
+ 
+  .game_window {
+    max-height: 400px; 
+  }
+
+  .game_pad {
+    position: relative;
+    bottom: 0px;
+    min-width: initial;
+    width: 100vw;
+  }
 
   .star {
-    width: 15px;
+    width: 20px;
   } 
   
   .score_text {
     text-transform: capitalize;
-    font-size: 12px;
+    font-size: 20px;
   }
 
   .score_display_input {
-    width: 35px;
-    height: 20px;    
-    border-radius: 10px;
-    font-size: 16px;  
+    height: 30px;
+    font-size: 25px;
   }
 
   .control_panel {
-    padding: 10px 5px;
+    padding-top: 5px;
   }
 
   .btn_control_panel {
-  font-size: 9px;
-  padding: 2px;
-  border-radius: 5px;
+  font-size: 12px;
+  padding: 5px;
   }
 
-  .container {
-    width: 100px;
-    height: 300px;
-    padding: 0 5px;
+  .container {    
+    padding-top: 5px;
   }
 
   .calc {
-    width: 80px;
-    height: 180px;
-    padding: 0;
-    border-radius: 10px;
+    width: 230px;
+    height: 220px;
   }
 
-  .calc_display{
-    padding: 0px;
+  .calc_display {
+    padding: 5px 15px;
   }
 
   .calc_display_input {
-    width: 70px;
-    height: 30px;
-    padding: 0px;
-    font-size: 18px;
-    border-radius: 10px;
+    width: 190px;
+    height: 50px;
+    font-size: 35px;
   }
 
   .calc_grid {         
-    column-gap: 1px;
-    width: 70px;
-    height: 140px;
-    margin: 0 3px;
+    column-gap: 2px;
+    width: 190px; 
   }
 
   .btn {
-    width: 15px;
-    height: 20px;
-    font-size: 14px;
+    width: 40px;
+    height: 32px;
+    font-size: 20px;
     margin: 2px;
-  }
-
-  .btn_enter h1,
-  .clear_btn h1 {
-    width: 15px;
-    height: 10px;
-    float: left;
-    transform: rotate(-90deg);
   }
 
   .btn_enter,
   .clear_btn {
-    font-size: 6px;
-    width: 12px;
-    height: 40px;
+    font-size: 14px;
+    width: 50px;
+    height: 70px;
   }
 
   .btn_delete {
-    font-size: 6px;
-    width: 30px;
+    font-size: 15px;
+    width: 80px;
   }
+
 }
