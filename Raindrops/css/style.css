@@ -408,6 +408,65 @@ html {
   opacity: 0;
 }
 
+.arrows_left_passive {
+  background-image: url(../img/arrow-left-p.png);
+}
+
+.arrows_left {
+  background-image: url(../img/arrow-left.png);
+  cursor: pointer;
+  background-size: 100% 70%;
+}
+
+.arrows_right_passive {
+  background-image: url(../img/arrow-right-p.png);
+}
+
+.arrows_right {
+  background-image: url(../img/arrow-right.png);
+  cursor: pointer;
+  background-size: 100% 70%;
+}
+
+.arrows {
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+video {
+  width: 80%;
+  object-fit: contain;
+}
+
+.video3 {
+  background-image: url(../img/NumLock.jpg);
+  background-size: cover;
+}
+
+.operator_video {
+  justify-content: center;
+}
+
+.operator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.description {
+  width: 80%;
+  overflow: hidden;
+  line-height: 2.3rem;
+  max-width: 400px;
+  font-size: 2rem;
+  font-size: 20px;
+}
+
 .message {
   max-width: 300px;
   text-align: center;
@@ -430,6 +489,89 @@ html {
   font-weight: bold;
 }
 
+.configuration h5 {
+  display: block;
+  max-width: 250px;
+  font-weight: normal;
+  line-height: normal;
+}
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.message-start {
+  max-width: 900px;
+  max-height: 90vh;
+}
+
+.operator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.operator_check {
+  box-sizing: border-box;
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border: 3px solid black;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.22);
+  transition: 0.3s all;
+}
+
+.operator_check_active {
+  border: 6px solid rgb(255, 30, 0);
+  border-radius: 50%;
+  background-image: url(../img/kalr.png);
+  background-size: cover;
+}
+
+.arrows_down {
+  background-image: url(../img/arrow-d.png);
+  cursor: pointer;
+}
+
+.arrows_up {
+  background-image: url(../img/arrow-up.png);
+  cursor: pointer;
+}
+
+.arrows_set-number {
+  display: flex;
+  font-size: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrows {
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .confirm {
   display: block;
   width: 50%;
@@ -440,15 +582,19 @@ html {
   cursor: pointer;
 }
 
+.configuration {
+  transition: 0.3s all;
+}
+
 .drop {
   position: absolute;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   top: -110px;
-  background-color: rgb(0, 183, 255);
+  background-color: #3c6983;
   border-radius: 50%;
   transition-timing-function: ease-in;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -481,10 +627,16 @@ html {
   right: 5px;
   width: 0;
   height: 0;
-  border-left: 45px solid transparent;
-  border-right: 45px solid transparent;
-  border-bottom: 110px solid rgb(0, 183, 255);
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 110px solid #3c6983;
 }
+
+
+
+/******************************************/
+
+
 
 .games_area {
   display: flex;
@@ -593,6 +745,10 @@ svg:not(:root) {
   font-size: 40px;
 }
 
+.score_display {
+  margin: 10px;
+}
+
 .score_display_input {
   width: 150px;
   height: 50px;
@@ -600,14 +756,14 @@ svg:not(:root) {
   background-color: #f8f8f6;
   color: rgb(0, 0, 0);
   text-align: center;
-  font-size: 40px;  
+  font-size: 48px;  
 }
 
 .control_panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 15px;
+  padding: 15px 5px;
 }
 
 .btn_control_panel {
@@ -637,8 +793,7 @@ svg:not(:root) {
 }
 
 .calc_display {
-  margin: 0 auto;
-  padding: 15px;
+  padding: 20px;
 }
 
 .calc_grid {       
@@ -659,6 +814,7 @@ svg:not(:root) {
   text-align: center;
   font-size: 80px;
   padding: 10px;
+  margin: 0 auto;
 }
 
 .btn {
@@ -870,11 +1026,11 @@ button {
 
   .score_display_input {
     height: 30px;
-    font-size: 25px;
+    font-size: 28px;
   }
 
   .control_panel {
-    padding-top: 5px;
+    padding: 5px 0;
   }
 
   .btn_control_panel {
@@ -892,7 +1048,7 @@ button {
   }
 
   .calc_display {
-    padding: 5px 15px;
+    padding: 10px 15px;
   }
 
   .calc_display_input {
