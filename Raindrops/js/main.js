@@ -56,11 +56,11 @@ let lastDropLean = 0;
 let currentDrops = [];
 let inxDrop = 0;
 let countWinDrop = 0;
-let counWrongEnter = 0;
+let countWrongEnter = 0;
 let currentOperators = [];
 let myevent = new Event("click", { bubbles: true });
 let game = 0;
-let numberOfFeils = 0;
+let numberOfFails = 0;
 let coint = 10;
 let startTime;
 let endTime;
@@ -69,7 +69,7 @@ let currentTIMEForOneDrop;
 let currentDROPFollenInterval;
 
 let operator;
-let firstNumder;
+let firstNumber;
 let secondNumber;
 let result;
 
@@ -79,30 +79,30 @@ function startGame() {
   lastDropLean = 0;
   coint = 10;
   countWinDrop = 0;
-  counWrongEnter = 0;
+  countWrongEnter = 0;
   inxDrop = 0;
   currentTIMEForOneDrop = time_for_one_drop;
-  currentDROPFollenInterval = interval_for_drop;
+  currentDROPFallenInterval = interval_for_drop;
   score.textContent = "";
   startTime = new Date();
   createDrop();
-  game = setInterval(createDrop, currentDROPFollenInterval * 1000);
+  game = setInterval(createDrop, currentDROPFallenInterval * 1000);
   rain_sound.play();
 }
 
-function feiled() {     // исправить наименование функции
+function failed() {    
   if (!isGamePlayed) return;
-  if (++numberOfFeils >= 3) {
+  if (++numberOfFails >= 3) {
     isGamePlayed = false;
     setTimeout(endGame, interval_opacity * 1000);
   }
   const drops = document.querySelectorAll(".drop");
   drops.forEach((drop) => dropQuickDown(drop));
 
-  wave.style.height = `${12 + 20 * numberOfFeils}%`;
+  wave.style.height = `${12 + 20 * numberOfFails}%`;
 
   clearInterval(game);
-  game = setInterval(createDrop, currentDROPFollenInterval * 1000);
+  game = setInterval(createDrop, currentDROPFallenInterval * 1000);
 
   fail_sound.currentTime = 0;
   fail_sound.play();
@@ -115,7 +115,7 @@ function endGame(e) {
   clearInterval(game);
   const goal = document.querySelectorAll(".drop");
   goal.forEach((drop) => drop.remove());
-  numberOfFeils = 0;
+  numberOfFails = 0;
   rain_sound.pause();
   endTime = new Date();
   isGamePlayed = false;
@@ -134,17 +134,17 @@ function createDrop() {
   const span_1 = document.createElement("span");
   const span_2 = document.createElement("span");
   const span_3 = document.createElement("span");
-  const fild = document.querySelector(".game_container_fild");
+  const field = document.querySelector(".game_container_field");
 
-  const bottom = fild.offsetHeight + 25;
-  let leans = Math.floor((fild.offsetWidth - 60) / 80);
+  const bottom = field.offsetHeight + 25;
+  let leans = Math.floor((field.offsetWidth - 60) / 80);
 
-  const left_Postion = randomLean(leans) * 80 - 60;
+  const left_Position = randomLean(leans) * 80 - 60;
 
   drop.classList.add("drop");
   drop_container.classList.add("drop__container");
-  drop.style.left = `${left_Postion}px`;
-  drop.addEventListener("transitionend", feiled);
+  drop.style.left = `${left_Position}px`;
+  drop.addEventListener("transitionend", failed);
 
   span_1.classList.add("drop__span");
   span_2.classList.add("drop__span", "drop__span_big");
@@ -180,7 +180,7 @@ function createDrop() {
 
 function dropTransitionEnd(e) {
   e.target.removeEventListener("transitionend", dropTransitionEnd);
-  feiled(e);
+  failed(e);
 }
 
 
@@ -212,7 +212,7 @@ function setNumbers() {
   return [firstNumber, secondNumber, result, operator];
 }
 
-function setOperatops() {
+function setOperators() {
   let i = 0;
   operators_check.forEach((operator) => {
     if (operator.classList.contains("operator_check_active")) {
@@ -261,16 +261,16 @@ function enterGoal() {
     +score.textContent - coint < 0 ? "" : +score.textContent - coint;
     bump_sound.currentTime = 0;
     bump_sound.play();
-  ++counWrongEnter;
+  ++countWrongEnter;
 }
 
 function setBonus(drops) {
   drops.forEach((drop) => dropQuickDown(drop));
   score.textContent = +score.textContent + 3 * coint++;
   currentTIMEForOneDrop *= complexity_index;
-  currentDROPFollenInterval *= complexity_index;
+  currentDROPFallenInterval *= complexity_index;
   clearInterval(game);
-  game = setInterval(createDrop, currentDROPFollenInterval * 1000);
+  game = setInterval(createDrop, currentDROPFallenInterval * 1000);
   win_sound.currentTime = 0;
   win_sound.play();
   calc_screen.textContent = "";
@@ -278,7 +278,7 @@ function setBonus(drops) {
 }
 
 function dropQuickDown(drop) {
-  drop.removeEventListener("transitionend", feiled);
+  drop.removeEventListener("transitionend", failed);
 
   drop.style.transition = "";
   drop.dataset.goal = "";
@@ -304,7 +304,7 @@ function keydown(e) {
 function efficiency() {
   if (!countWinDrop) return "0%";
   return (
-    Math.round((countWinDrop / (countWinDrop + counWrongEnter)) * 100) + "%"
+    Math.round((countWinDrop / (countWinDrop + countWrongEnter)) * 100) + "%"
   );
 }
 
@@ -312,7 +312,7 @@ function showMessage() {
   let results = [
     score.textContent,
     countWinDrop,
-    counWrongEnter,
+    countWrongEnter,
     efficiency(),
     getGameTime(),
   ];
@@ -365,19 +365,6 @@ function formatDuration(seconds) {
     : res[0];
 }
 
-/*
-OPTIONS_DURING_GAME_btn.addEventListener("click", () => {
-  endGame("End without message");
-  OVERLAY_start.removeEventListener("transitionend", setDisplayNone);
-  OVERLAY_start.classList.remove("display-none");
-  setTimeout(() => {
-    OVERLAY_start.classList.remove("opacity-null");
-  }, 10);
-  configuration.classList.remove("display-none");
-  HOW_TO_PLAY_container.classList.add("display-none");
-  MESSAGE_start.style.width = "";
-}); */
-
 play_btn.addEventListener("click", () => {
   overlay_start.classList.add("opacity-null");
   overlay_start.addEventListener("transitionend", setDisplayNone);
@@ -385,7 +372,7 @@ play_btn.addEventListener("click", () => {
   video_2.pause();
   video_1.currentTime = 0;
   video_2.currentTime = 0;
-  setOperatops();
+  setOperators();
   end_number = +set_number.textContent;
   startGame();
 });
