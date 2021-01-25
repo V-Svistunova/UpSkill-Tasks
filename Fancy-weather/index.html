@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fancy-weather</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="body">
+  <div class="weather">
+    <div class="weather_inner">
+      <div class="weather_left">
+        <div class="weather_panel">
+          <div class="button refresh">
+            <img src="/img/icons/refresh.png" alt="refresh">
+          </div>
+          <div class="button lang">
+            <select size="1" class="select_lang">
+              <option>en</option>
+              <option>ru</option>
+            </select>
+          </div>
+          <div class="button button_active fahrenheit">&#8457</div>
+          <div class="button celsius">&#176c</div>
+        </div>
+        <div class="current">
+          <div class="current_city">Minsk, Belarus</div>
+          <div class="current_date_and_time">
+            <div class="current_date">Mon 28 October</div> 
+            <div class="current_time">20:12</div>
+          </div>          
+        </div>
+        <div class="forecast">
+          <div class="temperature">
+            <div class="temperature_number">-10</div>
+            <div class="temperature_symbol">&#176</div>
+          </div>
+          <div class="details">
+            <div class="details_weather">
+              <img src="/img/icons/snow_cloud_weather.png" alt="details_weather" class="details_weather_img">
+            </div>
+            <div class="details_text">
+              <h1>overcast</h1>
+              <h1 class="feels_like">feels like: 7°</h1>
+              <h1 class="wind">Wind: 2 m/s </h1>
+              <h1 class="humidity">humidity: 83%</h1>
+            </div>
+          </div>
+        </div>
+        <div class="forecast_next_days">
+          <div class="forecast_next_day">
+            <div class="weekday">tuesday</div>
+            <div class="weekday_forecast">
+              <div class="weekday_temperature">
+                <div class="weekday_temperature_number">-10</div>
+                <div class="weekday_temperature_symbol">&#176</div>
+              </div>
+              <div class="weekday_details">
+                <div class="weekday_details_weather">
+                  <img src="/img/icons/snow_cloud_weather.png" alt="details_weather" class="weekday_weather_img">
+                </div>                
+              </div>
+            </div>
+          </div>
+          <div class="forecast_next_day">
+            <div class="weekday">wednesday</div>
+            <div class="weekday_forecast">
+              <div class="weekday_temperature">
+                <div class="weekday_temperature_number">0</div>
+                <div class="weekday_temperature_symbol">&#176</div>
+              </div>
+              <div class="weekday_details">
+                <div class="weekday_details_weather">
+                  <img src="/img/icons/cloudy_weather.png" alt="details_weather" class="weekday_weather_img">
+                </div>                
+              </div>
+            </div>
+          </div>
+          <div class="forecast_next_day">
+            <div class="weekday">thursday</div>
+            <div class="weekday_forecast">
+              <div class="weekday_temperature">
+                <div class="weekday_temperature_number">7</div>
+                <div class="weekday_temperature_symbol">&#176</div>
+              </div>
+              <div class="weekday_details">
+                <div class="weekday_details_weather">
+                  <img src="/img/icons/sunny_cloud.png" alt="details_weather" class="weekday_weather_img">
+                </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weather_right">
+        <div class="search">          
+            <input type="search" name="q" placeholder="Search city" class="input_search"> 
+            <input type="submit" value="Search" class="input_submit">
+        </div>
+        <div class="container_map">
+          <div class="map" id="map"></div>
+        </div>
+        <div class="coordinates">
+          <div class="coordinates_lat">latitude: 53°54'</div>
+          <div class="coordinates_lng">longitude: 27°34'</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJf_gpQq2wH7JJzw3vVRdB4TwiDrvFkOI&callback=initMap">
+  </script>
+  </body>
+</html>
