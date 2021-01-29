@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fancy-weather</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet'/>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"/>
 </head>
 <body class="body">
   <div class="weather">
@@ -14,20 +16,18 @@
           <div class="button refresh">
             <img src="/img/icons/refresh.png" alt="refresh">
           </div>
-          <div class="button lang">
-            <select size="1" class="select_lang">
-              <option>en</option>
-              <option>ru</option>
-            </select>
-          </div>
-          <div class="button button_active fahrenheit">&#8457</div>
-          <div class="button celsius">&#176c</div>
+          <div class="lang">
+            <div class="button button_active en">en</div>
+            <div class="button ru">ru</div>          
+          </div>          
+          <div class="button fahrenheit">&#8457</div>
+          <div class="button button_active celsius">&#176c</div>
         </div>
         <div class="current">
           <div class="current_city">Minsk, Belarus</div>
           <div class="current_date_and_time">
-            <div class="current_date">Mon 28 October</div> 
-            <div class="current_time">20:12</div>
+            <div class="current_date" id="current_date">Mon 28 October</div> 
+            <div class="current_time" id="current_time">20:12</div>
           </div>          
         </div>
         <div class="forecast">
@@ -37,56 +37,50 @@
           </div>
           <div class="details">
             <div class="details_weather">
-              <img src="/img/icons/snow_cloud_weather.png" alt="details_weather" class="details_weather_img">
+              <div class="details_weather_img"></div>
             </div>
             <div class="details_text">
-              <h1>overcast</h1>
-              <h1 class="feels_like">feels like: 7°</h1>
-              <h1 class="wind">Wind: 2 m/s </h1>
-              <h1 class="humidity">humidity: 83%</h1>
+              <p class="details_clouds">overcast</p>
+              <div class="row"><p class="feels_like">feels like: 7°</p>&nbsp; <p class="details_feels"></p></div>
+              <div class="row"><p class="wind">Wind: 2 m/s</p>&nbsp;	<p class="details_wind"></p></div>
+              <div class="row"><p class="humidity">humidity: 83%</p>&nbsp;	<p class="details_humidity"></p></div>
             </div>
           </div>
         </div>
         <div class="forecast_next_days">
           <div class="forecast_next_day">
-            <div class="weekday">tuesday</div>
+            <div class="weekday day_1">tuesday</div>
             <div class="weekday_forecast">
               <div class="weekday_temperature">
-                <div class="weekday_temperature_number">-10</div>
+                <div class="weekday_temperature_number temp_1">-10</div>
                 <div class="weekday_temperature_symbol">&#176</div>
               </div>
-              <div class="weekday_details">
-                <div class="weekday_details_weather">
-                  <img src="/img/icons/snow_cloud_weather.png" alt="details_weather" class="weekday_weather_img">
-                </div>                
+              <div class="weekday_details">                
+                <div class="weekday_weather_img icon_1"></div>                
               </div>
             </div>
           </div>
           <div class="forecast_next_day">
-            <div class="weekday">wednesday</div>
+            <div class="weekday day_2">wednesday</div>
             <div class="weekday_forecast">
               <div class="weekday_temperature">
-                <div class="weekday_temperature_number">0</div>
+                <div class="weekday_temperature_number temp_2">0</div>
                 <div class="weekday_temperature_symbol">&#176</div>
               </div>
-              <div class="weekday_details">
-                <div class="weekday_details_weather">
-                  <img src="/img/icons/cloudy_weather.png" alt="details_weather" class="weekday_weather_img">
-                </div>                
+              <div class="weekday_details">                
+                <div class="weekday_weather_img icon_2"></div>                
               </div>
             </div>
           </div>
           <div class="forecast_next_day">
-            <div class="weekday">thursday</div>
+            <div class="weekday day_3">thursday</div>
             <div class="weekday_forecast">
               <div class="weekday_temperature">
-                <div class="weekday_temperature_number">7</div>
+                <div class="weekday_temperature_number temp_3">7</div>
                 <div class="weekday_temperature_symbol">&#176</div>
               </div>
-              <div class="weekday_details">
-                <div class="weekday_details_weather">
-                  <img src="/img/icons/sunny_cloud.png" alt="details_weather" class="weekday_weather_img">
-                </div>                
+              <div class="weekday_details">                  
+                <div class="weekday_weather_img icon_3"></div>              
               </div>
             </div>
           </div>
@@ -101,16 +95,15 @@
           <div class="map" id="map"></div>
         </div>
         <div class="coordinates">
-          <div class="coordinates_lat">latitude: 53°54'</div>
-          <div class="coordinates_lng">longitude: 27°34'</div>
+          <div class="row"><p class="coordinates_lat">latitude: 53°54'</p>&nbsp;	<p class="map_lat"></p></div>
+          <div class="row"><p class="coordinates_lng">longitude: 27°34'</p>&nbsp;	<p class="map_lng"></p></div>
         </div>
       </div>
     </div>
   </div>
 
   <script src="/js/main.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJf_gpQq2wH7JJzw3vVRdB4TwiDrvFkOI&callback=initMap">
-  </script>
+  <script defer src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+  <script defer src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script> 
   </body>
 </html>

@@ -32,8 +32,16 @@ html {
   padding: 40px 90px;
   position: relative;
   top: 0;
-  background:#11112E url(/img/sky_and_sun.jpg);
+  background:linear-gradient(
+    180deg,
+    rgba(8, 15, 26, 0.11) 0%,
+    rgba(192, 192, 252, 0.21) 100%
+  ), url(/img/weather.jpg);
   background-size: 100% 100%;
+  -webkit-animation:  fade-in 1s linear; 
+  -moz-animation: fade-in 1s linear; 
+  -o-animation: fade-in 1s linear; 
+  animation:  fade-in 1s linear;
 }
 
 .weather_inner {
@@ -57,13 +65,19 @@ html {
   border-radius: 5px;
 }
 
+.lang {
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
   background:rgba(174, 181, 185, 0.5);
   width: 44px;
-  height: 44px;  
+  height: 44px; 
+  border-radius: 5px; 
 }
 
 .button:hover,
@@ -73,16 +87,12 @@ html {
 } 
 
 .button_active {
-  background: rgba(76, 82, 85, 0.4);
+  background: rgba(76, 82, 85, 0.8);
   border-radius: 5px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(255, 255, 255, 0.9);
 }
 
-.lang {
-  width: 70px;
-  margin: 0 10px;
-  border-radius: 5px;
-}
+
 
 .select_lang {
   background:rgba(174, 181, 185, 0.5);
@@ -123,7 +133,8 @@ html {
 }
 
 .forecast,
-.temperature {
+.temperature,
+.lang {
   display: flex;
 }
 
@@ -139,18 +150,19 @@ html {
   font-size: 100px;  
 }
 
-.details_weather_img {
+.details_weather_img img {
   width: 150px;  
 }
 
-.details_text h1{
+.details_text {
   font-weight: bold;
   font-size: 22px;
   line-height: 33px;
   text-transform: uppercase;
 }
 
-.forecast_next_days {
+.forecast_next_days,
+.row {
   display: flex;
 }
 
@@ -177,13 +189,11 @@ html {
   text-transform: uppercase;
 }
 
-.weekday_details_weather {
+.weekday_weather_img img {
   display: flex;  
-}
-
-.weekday_weather_img {
   width: 65px;
 }
+
 
 
 /**************************Weather_right"********************************/
@@ -197,7 +207,7 @@ html {
 }
 
 .input_search{
-  width: 274px;
+  width: 224px;
   height: 44px;
   background: rgba(76, 82, 85, 0.4);
   border: 1px solid rgba(228, 227, 227, 0.2);
@@ -213,7 +223,7 @@ html {
 }
 
 .input_submit {
-  width: 101px;
+  width: 84px;
   height: 44px;
   background: rgba(174, 181, 185, 0.5);
   border-radius: 5px;
@@ -240,11 +250,16 @@ html {
 }
 
 .coordinates {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   margin: 30px 0;
+}
+
+.row {
   font-weight: 600;
   font-size: 20px;
-  line-height: 30px;
-  text-align: right;
+  line-height: 30px;  
   text-transform: capitalize;
 }
 
@@ -328,7 +343,7 @@ html {
     line-height: 233px;
   }
 
-  .details_weather_img {
+  .details_weather_img img {
     width: 100px;
   }
 
@@ -355,7 +370,7 @@ html {
     line-height: 58px;
   }
  
-  .weekday_weather_img {
+  .weekday_weather_img img {
     width: 35px;
   }
 
@@ -374,7 +389,7 @@ html {
     height: 240px;
   }
 
-  .coordinates {
+  .row {
     font-size: 14px;
     line-height: 26px;
   }
@@ -396,7 +411,8 @@ html {
   }
 
   .weather_panel {
-    justify-content: center;
+    max-width: 260px;
+    margin: 0 auto;
   }
 
   .current {
@@ -429,7 +445,7 @@ html {
     font-size: 60px;
   }
 
-  .details_weather_img {
+  .details_weather_img img {
     width: 80px;
   }
 
@@ -438,8 +454,9 @@ html {
     line-height: 20px;
   }
 
-  .forecast_next_days {
-    margin: 20px 0;    
+  .forecast_next_days { 
+    max-width: 260px;   
+    margin: 20px auto;    
   }
 
   .forecast_next_day {
@@ -456,7 +473,7 @@ html {
     line-height: 48px;
   }
  
-  .weekday_weather_img {
+  .weekday_weather_img img {
     width: 25px;
   }
 
@@ -484,7 +501,11 @@ html {
     height: 240px;
   }
 
-  .coordinates {
+  .coordinates {    
+    align-items: center;    
+  }
+
+  .row {
     font-size: 14px;
     line-height: 26px;
     text-align: center;
