@@ -81,7 +81,7 @@
   button#send_message {
       display: inline-block;
       height: 80%;
-      width: 40%;
+      width: 10%;
   }
   .alert{
     padding: 10px;
