@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Raindrops</title>
+</head>
+<body class="body">
+
+<!-- start message  -->
+
+  <div class="overlay overlay-start">
+    <div class="message message-start">
+      <h2>RainDrops game <img src="/img/heavyrain.png" alt="drop"></h2>
+      <hr>
+      <div class="configuration display-none">
+        <h3>Select the option</h3>
+        <div class="operator">
+          <span>Addition</span>
+          <div class="operator_check operator_check_active"> </div>
+        </div>
+        <div class="operator">
+          <span>Subtraction</span>
+          <div class="operator_check"> </div>
+        </div>
+        <div class="operator">
+          <span>Division</span>
+          <div class="operator_check"> </div>
+        </div>
+        <div class="operator">
+          <span>Multiplication</span>
+          <div class="operator_check"> </div>
+        </div>
+        <span>Set the max number*</span>
+        <div class="operator">
+          <div class="arrows arrows_down "></div>
+          <div class="arrows arrows_set-number">10</div>
+          <div class="arrows arrows_up"></div>
+        </div>
+        <h5>* - for multiplication and division, this will be no more than 10</h5>
+      </div>
+      <div class="how-to-play_container display-none">
+        <video class="video1" src="./video/win.mp4"></video>
+        <video class="video2 display-none" src="./video/fail.mp4"></video>
+        <video class="video3 display-none"></video>
+        <div class="operator operator_video">
+          <div class="arrows arrows_left arrows_left_passive"></div>
+          <div class="description"> Enter the value of the expression before the drop falls into the puddle.</div>
+          <div class="arrows arrows_right"></div>
+        </div>
+      </div> 
+      <button class="btn_control_panel btn_hover_green play-start play">Play</button>
+      <button class="btn_control_panel btn_hover_orange options">Options</button>
+      <button class="btn_control_panel btn_hover_orange how-to-play haw_play">How to play?</button>
+    </div>
+  </div>
+
+<!-- message end -->
+<div class="overlay overlay-end opacity-null display-none">
+  <div class="message message_end">    
+    <h2>You have a new level </h2>    
+    <button class="btn_control_panel btn_hover_green confirm">Play again!</button>    
+  </div>
+</div>
+
+
+<!-- Game -->
+  <div class="games_area">
+
+    <!-- Left section -->
+    <div class="game_window"> 
+      <div class="game_container">
+        <div class="game_container_field"></div>
+        <div class="wave">
+          <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 
+                58-18 88-18s
+                58 18 88 18 
+                58-18 88-18 
+                58 18 88 18
+                v44h-352z" />
+            </defs>
+            <g class="parallax">
+              <use xlink:href="#gentle-wave" x="60" y="0" fill="#407594" />
+              <use xlink:href="#gentle-wave" x="60" y="3" fill="#5ba1c9" />
+              <use xlink:href="#gentle-wave" x="60" y="6" fill="#3c6983" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Right section -->
+    <div class="game_pad">
+      <div class="score">
+        <img src="/img/star.png" alt="star" class="star">
+        <h1 class="score_text">score:</h1>
+        <div class="score_display">
+          <div class="score_display_input"></div>          
+        </div>        
+      </div>    
+      <div class="control_panel">      
+        <button type="button" class="btn_control_panel btn_hover_red end">finish the game</button>        
+      </div>     
+      <div class="container">
+        <div class="calc">
+          <div class="calc_display">
+            <div class="calc_display_input"></div>              
+          </div>            
+            <div class="calc_grid">    
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad7" data-key="7">7</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad8" data-key="8">8</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad9" data-key="9">9</button>
+              </div>  
+              <div class="button_grid long_grid_1">
+                <button type="button" class="clear_btn btn btn_hover_red" id="clear" data-code="NumpadAdd"
+                data-key="Clear">clear</button>
+              </div>             
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad4" data-key="4">4</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad5" data-key="5">5</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad6" data-key="6">6</button>
+              </div>              
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad1" data-key="1">1</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad2" data-key="2">2</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad3" data-key="3">3</button>
+              </div>
+              <div class="button_grid long_grid_1">
+                <button type="button" class="operator btn btn_enter btn_hover_blue" id="result" data-code="NumpadEnter"
+                data-key="Enter">enter</button>
+              </div>
+              <div class="button_grid">
+                <button type="button" class="number btn_hover_green btn" data-code="Numpad0" data-key="0">0</button>
+              </div>
+              <div class="button_grid long_grid_2">
+                <button type="button" class="btn_delete btn btn_hover_orange" id="delete" data-code="NumpadDecimal" data-key="Del">delete</button>
+              </div>               
+           </div>
+        </div>
+     </div>
+    </div>
+  
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+
+</html>
